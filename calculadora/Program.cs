@@ -10,6 +10,7 @@ app.MapGet("/", () => {
     return  new { mensagem= "API em execução"};
 });
 
+// Aula de SWITCH
 app.MapGet("/calcula/{opcao}/{valor1}/{valor2}", (int opcao, int valor1, int valor2) => {
    switch (opcao)
     {
@@ -68,5 +69,46 @@ app.MapGet("/calcula/{opcao}/{valor1}/{valor2}", (int opcao, int valor1, int val
             });
     }
 });
+
+//AULA QUE FOI DEPOIS DA DE SWITCH
+app.MapGet("/calcula/soma/{valor1}/{valor2}", (int valor1, int valor2) => {
+    resultado = valor1 + valor2;
+            return Results.Ok(new
+            {
+                valor1,
+                valor2,
+                resultado
+            });
+    });
+
+app.MapGet("/calcula/subtracao/{valor1}/{valor2}", (int valor1, int valor2) => {  
+    resultado =  valor1 - valor2;
+            return Results.Ok(new
+            {
+                valor1,
+                valor2,
+                resultado 
+            });
+    });
+
+app.MapGet("/calcula/multiplicacao/{valor1}/{valor2}", (int valor1, int valor2) => {  
+    resultado =  valor1 * valor2;
+            return Results.Ok(new
+            {
+                valor1,
+                valor2,
+                resultado 
+            });
+    });
+
+app.MapGet("/calcula/divisao/{valor1}/{valor2}", (int valor1, int valor2) => {  
+    resultado = valor1 / valor2;
+            return Results.Ok(new
+            {
+                valor1,
+                valor2,
+                resultado 
+            });
+    });
 
 app.Run();
